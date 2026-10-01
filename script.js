@@ -151,3 +151,24 @@ function closePhotoModal() {
         modal.classList.add('hidden');
     }
 }
+
+function openMultiCertModal(title, imageArray) {
+    document.getElementById('multiModalTitle').innerText = title;
+    
+    const container = document.getElementById('multiImageContainer');
+    container.innerHTML = ''; // Bersihkan isi sebelumnya
+    
+    // Looping untuk menampilkan setiap foto
+    imageArray.forEach(imgUrl => {
+        const imgElement = document.createElement('img');
+        imgElement.src = imgUrl;
+        imgElement.className = 'w-full h-auto rounded-xl border border-slate-800 object-cover shadow-md hover:scale-105 transition-transform';
+        container.appendChild(imgElement);
+    });
+    
+    document.getElementById('multiCertModal').classList.remove('hidden');
+}
+
+function closeMultiCertModal() {
+    document.getElementById('multiCertModal').classList.add('hidden');
+}
